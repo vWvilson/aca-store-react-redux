@@ -15,19 +15,27 @@ It may not seem like anything different is happening but we need to remember thi
 * In index.html, add a script tag for redux https://unpkg.com/redux@4.0.1/dist/redux.js
 * We already have a state object in /js/state.js
 * Reducers
-    * Create a reducer for shoppingCart in index.js
-    * Look for an action of type = "ADD_PRODUCT_TO_CART"
-    * If action.type ===  "ADD_PRODUCT_TO_CART"
-    * return [...state, action.product];
+    * shoppingCart
+        * Create a reducer for shoppingCart in index.js
+        * Look for an action of type = "ADD_PRODUCT_TO_CART"
+        * If action.type ===  "ADD_PRODUCT_TO_CART"
+        * return [...state, action.product];
+    * products
+        * Create a reducer for products in index.js
+        * just return state, since we do not every change products
     * Combine reducers and save in a global variable `reducers`
 * Store
     * Create a redux store in index.js and save in a global variable `store`
     * Make sure to provide the state and reducers
-* App.js
-    * Remove the state for shopppingCart since its now in redux
-    * Remove the function addItemToCart since the reducer is handling it
-    * Do not pass addItemToCart to any child component
-    * Do not pass shoppingCart to any child component.
+* ProductList.js
+    * Convert the ProductList component to a class component, make sure to extend React.Component
+    * Make sure to change all references of `props` to `this.props`
+    * Create a state key for `state={products:[]}`
+    * In componentDidMount retrieve the products from the store
+    * `store.getState().products;`
+    * setState for products to `store.getState().products`. 
+    * Instead of using `props.products`, use `this.state.products`
+    * Don't pass addItemToCart to ProductDetail
 * Layout.js
     * Do not pass shoppingCart to Header.
 * Header.js
@@ -52,6 +60,17 @@ It may not seem like anything different is happening but we need to remember thi
     * `store.getState().shoppingCart;`
     * setState for shoppingCart to `store.getState().shoppingCart`. 
     * Instead of using `props.cart`, use `this.state.shoppingCart`
-
+* App.js
+    * Remove the state for shopppingCart since its now in redux
+    * Remove the state for products since its now in redux
+    * Remove the function addItemToCart since the reducer is handling it
+    * Do not pass addItemToCart to any child component
+    * Do not pass shoppingCart to any child component.
+    * Do not pass products to any child component
+## Things to Consider
+* All the redux objects are in global variables
+* We had to do extra work of changing function components to class components and using componentDidMount
+* Our components are aware that redux exists because they have to access the store directly through the global variable in order to get data
+* We still have to pass functions around for conditional rendering
 
 

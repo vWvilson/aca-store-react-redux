@@ -4,15 +4,6 @@ class App extends React.Component{
        whatToShow:0,
        products:[]
    }
-   componentDidMount(){
-    fetch('https://acastore.herokuapp.com/products')
-    .then((response)=> {
-      return response.json();
-    })
-    .then((data) =>{
-      this.setState({products:data})
-    });
-   }
    changeView = (view)=>{
       // this.setState({whatToShow:view});
     this.setState(()=>{
