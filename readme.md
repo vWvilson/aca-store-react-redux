@@ -60,7 +60,7 @@ It may not seem like anything different is happening but we need to remember thi
     * `store.getState().shoppingCart;`
     * setState for shoppingCart to `store.getState().shoppingCart`. 
     * Instead of using `props.cart`, use `this.state.shoppingCart`
-* App.js
+## App.js
     * Remove the state for shopppingCart since its now in redux
     * Remove the state for products since its now in redux
     * Remove the function addItemToCart since the reducer is handling it
