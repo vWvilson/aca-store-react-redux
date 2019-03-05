@@ -2,7 +2,6 @@ class App extends React.Component{
    state={
        shoppingCart:[],
        whatToShow:0,
-       products:[]
    }
   //  componentDidMount(){
   //   fetch('https://acastore.herokuapp.com/products')

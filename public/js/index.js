@@ -10,6 +10,17 @@ function shoppingCart(state, action) {
       return state
   }
 }
+function products(state,action){
+  if (typeof state === 'undefined') {
+    return []
+  }
+  return state;
+}
+
+let reducers =  Redux.combineReducers({
+  shoppingCart, products})
+  
+let store = Redux.createStore(reducers,state)
 
 
 ReactDOM.render(
